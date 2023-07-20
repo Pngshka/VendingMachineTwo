@@ -1,0 +1,609 @@
+@startuml
+
+/' diagram meta data start
+config=StructureConfiguration;
+{
+  "projectClassification": {
+    "searchMode": "OpenProject", // OpenProject, AllProjects
+    "includedProjects": "",
+    "pathEndKeywords": "*.impl",
+    "isClientPath": "",
+    "isClientName": "",
+    "isTestPath": "",
+    "isTestName": "",
+    "isMappingPath": "",
+    "isMappingName": "",
+    "isDataAccessPath": "",
+    "isDataAccessName": "",
+    "isDataStructurePath": "",
+    "isDataStructureName": "",
+    "isInterfaceStructuresPath": "",
+    "isInterfaceStructuresName": "",
+    "isEntryPointPath": "",
+    "isEntryPointName": "",
+    "treatFinalFieldsAsMandatory": false
+  },
+  "graphRestriction": {
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "removeByInheritance": "", // inheritance/annotation based filtering is done in a second step
+    "removeByAnnotation": "",
+    "removeByClassPackage": "", // cleanup the graph after inheritance/annotation based filtering is done
+    "removeByClassName": "",
+    "cutMappings": false,
+    "cutEnum": true,
+    "cutTests": true,
+    "cutClient": true,
+    "cutDataAccess": false,
+    "cutInterfaceStructures": false,
+    "cutDataStructures": false,
+    "cutGetterAndSetter": true,
+    "cutConstructors": true
+  },
+  "graphTraversal": {
+    "forwardDepth": 6,
+    "backwardDepth": 6,
+    "classPackageExcludeFilter": "",
+    "classPackageIncludeFilter": "",
+    "classNameExcludeFilter": "",
+    "classNameIncludeFilter": "",
+    "methodNameExcludeFilter": "",
+    "methodNameIncludeFilter": "",
+    "hideMappings": false,
+    "hideDataStructures": false,
+    "hidePrivateMethods": true,
+    "hideInterfaceCalls": true, // indirection: implementation -> interface (is hidden) -> implementation
+    "onlyShowApplicationEntryPoints": false, // root node is included
+    "useMethodCallsForStructureDiagram": "ForwardOnly" // ForwardOnly, BothDirections, No
+  },
+  "details": {
+    "aggregation": "GroupByClass", // ByClass, GroupByClass, None
+    "showClassGenericTypes": true,
+    "showMethods": true,
+    "showMethodParameterNames": true,
+    "showMethodParameterTypes": true,
+    "showMethodReturnType": true,
+    "showPackageLevels": 2,
+    "showDetailedClassStructure": true
+  },
+  "rootClass": "Main",
+  "extensionCallbackMethod": "" // qualified.class.name#methodName - signature: public static String method(String)
+}
+diagram meta data end '/
+
+
+
+digraph g {
+    rankdir="TB"
+    splines=polyline
+    
+
+'nodes 
+subgraph cluster_1116604772 { 
+   	label=Terminal
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Input1116604772[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Input</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   container: Container [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   inputstr: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   money: double [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   output: Output [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   panel: JPanel [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   terminal: Terminal [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ Setting_Window(new_container: Container)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ addInputStr(str: String)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Output1116604772[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Output</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   COUNT: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   SECTION: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   SLOT: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   container: Container [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   machine: VendingMachine [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   panel: JPanel [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   terminal: Terminal [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ Setting_Window(new_container: Container)</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Password1116604772[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Password</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ checkPassword(value: String): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Terminal1116604772[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Terminal</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   Admin: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   COUNT: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   SECTION: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   SLOT: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   flag: boolean [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   input: Input [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   machine: VendingMachine [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   output: Output [0..1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ addSECTION(i: int, j: int, product: Product, count: int)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getTerminal(FLAG: boolean): Terminal</TD></TR>
+<TR><TD ALIGN="LEFT" >+ start()</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1184354166 { 
+   	label=VendingMachine
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   VendingMachine1184354166[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)VendingMachine</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   COUNT: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   SECTION: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   SLOT: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   products: Product[][] [0..*]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >- SettingCount(products: Product[][], flag: boolean)</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getInstance(SLOT: int, SECTION: int, COUNT: int, flag: boolean): VendingMachine</TD></TR>
+<TR><TD ALIGN="LEFT" >+ getProduct(i: int, j: int): Product</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1248343988 { 
+   	label=Beverages
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Beverage1192143818[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Beverage</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+CocaCola1192143818[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)CocaCola</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   count: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   penny: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rubles: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ Purchase(): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Fanta1192143818[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Fanta</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   count: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   penny: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rubles: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ Purchase(): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Lipton1192143818[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Lipton</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   count: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   penny: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rubles: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ Purchase(): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Pepsi1192143818[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Pepsi</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   count: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   penny: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rubles: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ Purchase(): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Sprite1192143818[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Sprite</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   count: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   penny: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rubles: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ Purchase(): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1809592067 { 
+   	label=Chocolate_bars
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Bounty2124994733[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Bounty</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   count: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   penny: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rubles: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ Purchase(): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+ChocolateBar2124994733[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)ChocolateBar</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Mars2124994733[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Mars</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   count: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   penny: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rubles: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ Purchase(): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Picnic2124994733[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Picnic</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   count: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   penny: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rubles: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ Purchase(): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Snickers2124994733[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Snickers</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   count: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   penny: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rubles: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ Purchase(): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Twix2124994733[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Twix</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   count: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   penny: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rubles: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ Purchase(): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_1814172155 { 
+   	label=Snacks
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Cheetos1998855761[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Cheetos</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   count: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   penny: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rubles: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ Purchase(): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Chrustim1998855761[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Chrustim</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   count: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   penny: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rubles: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ Purchase(): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Lays1998855761[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Lays</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   count: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   penny: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rubles: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ Purchase(): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Oreo1998855761[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Oreo</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   count: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   penny: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rubles: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ Purchase(): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Snack1998855761[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Snack</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Tuc1998855761[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Tuc</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   count: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   penny: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rubles: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ Purchase(): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_2390489 { 
+   	label=Main
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   Main2390489[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Main</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ main(args: String[])</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+subgraph cluster_939117180 { 
+   	label=Products
+	labeljust=l
+	fillcolor="#ececec"
+	style=filled
+   
+   NoProduct939117180[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)NoProduct</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >-   count: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   name: String [0..1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   penny: int [1]</TD></TR>
+<TR><TD ALIGN="LEFT" >-   rubles: int [1]</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ Purchase(): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+
+Product939117180[
+	label=<<TABLE BORDER="1" CELLBORDER="0" CELLPADDING="4" CELLSPACING="0">
+<TR><TD ALIGN="LEFT" >(C)Product</TD></TR>
+<HR/>
+<TR><TD ALIGN="LEFT" >+ Purchase(): boolean</TD></TR>
+</TABLE>>
+	style=filled
+	margin=0
+	shape=plaintext
+	fillcolor="#FFFFFF"
+];
+} 
+
+'edges    
+Beverage1192143818 -> CocaCola1192143818[arrowhead=none, arrowtail=empty, dir=both];
+Beverage1192143818 -> Fanta1192143818[arrowhead=none, arrowtail=empty, dir=both];
+Beverage1192143818 -> Lipton1192143818[arrowhead=none, arrowtail=empty, dir=both];
+Beverage1192143818 -> Pepsi1192143818[arrowhead=none, arrowtail=empty, dir=both];
+Beverage1192143818 -> Sprite1192143818[arrowhead=none, arrowtail=empty, dir=both];
+ChocolateBar2124994733 -> Bounty2124994733[arrowhead=none, arrowtail=empty, dir=both];
+ChocolateBar2124994733 -> Mars2124994733[arrowhead=none, arrowtail=empty, dir=both];
+ChocolateBar2124994733 -> Picnic2124994733[arrowhead=none, arrowtail=empty, dir=both];
+ChocolateBar2124994733 -> Snickers2124994733[arrowhead=none, arrowtail=empty, dir=both];
+ChocolateBar2124994733 -> Twix2124994733[arrowhead=none, arrowtail=empty, dir=both];
+Input1116604772 -> Output1116604772[label="output
+[0..1]"];
+Input1116604772 -> Terminal1116604772[label="terminal
+[0..1]"];
+Output1116604772 -> Terminal1116604772[label="terminal
+[0..1]"];
+Output1116604772 -> VendingMachine1184354166[label="machine
+[0..1]"];
+Product939117180 -> Beverage1192143818[arrowhead=none, arrowtail=empty, dir=both];
+Product939117180 -> Bounty2124994733[label="Purchase() -> Purchase()"];
+Product939117180 -> Cheetos1998855761[label="Purchase() -> Purchase()"];
+Product939117180 -> ChocolateBar2124994733[arrowhead=none, arrowtail=empty, dir=both];
+Product939117180 -> Chrustim1998855761[label="Purchase() -> Purchase()"];
+Product939117180 -> CocaCola1192143818[label="Purchase() -> Purchase()"];
+Product939117180 -> Fanta1192143818[label="Purchase() -> Purchase()"];
+Product939117180 -> Lays1998855761[label="Purchase() -> Purchase()"];
+Product939117180 -> Lipton1192143818[label="Purchase() -> Purchase()"];
+Product939117180 -> Mars2124994733[label="Purchase() -> Purchase()"];
+Product939117180 -> NoProduct939117180[arrowhead=none, arrowtail=empty, dir=both];
+Product939117180 -> Oreo1998855761[label="Purchase() -> Purchase()"];
+Product939117180 -> Pepsi1192143818[label="Purchase() -> Purchase()"];
+Product939117180 -> Picnic2124994733[label="Purchase() -> Purchase()"];
+Product939117180 -> Snack1998855761[arrowhead=none, arrowtail=empty, dir=both];
+Product939117180 -> Snickers2124994733[label="Purchase() -> Purchase()"];
+Product939117180 -> Sprite1192143818[label="Purchase() -> Purchase()"];
+Product939117180 -> Tuc1998855761[label="Purchase() -> Purchase()"];
+Product939117180 -> Twix2124994733[label="Purchase() -> Purchase()"];
+Snack1998855761 -> Cheetos1998855761[arrowhead=none, arrowtail=empty, dir=both];
+Snack1998855761 -> Chrustim1998855761[arrowhead=none, arrowtail=empty, dir=both];
+Snack1998855761 -> Lays1998855761[arrowhead=none, arrowtail=empty, dir=both];
+Snack1998855761 -> Oreo1998855761[arrowhead=none, arrowtail=empty, dir=both];
+Snack1998855761 -> Tuc1998855761[arrowhead=none, arrowtail=empty, dir=both];
+Terminal1116604772 -> Input1116604772[label="input
+[0..1]"];
+Terminal1116604772 -> Output1116604772[label="output
+[0..1]"];
+Terminal1116604772 -> Password1116604772[label="addSECTION() -> checkPassword()"];
+Terminal1116604772 -> VendingMachine1184354166[label="machine
+[0..1]"];
+VendingMachine1184354166 -> Product939117180[label="products
+[0..*]"];
+    
+}
+@enduml
